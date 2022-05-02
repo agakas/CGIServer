@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Agaka</title>
+</head>
+
+<body class="container-fluid p-0 w-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Вычислительная техника</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Таблицы
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <li><a class="dropdown-item " type="submit" href="/cgi-bin/responsible_person.py">Ответственные</a></li>
+                            <li><a class="dropdown-item" href="/cgi-bin/auditorium.py">Аудитории</a></li>
+                            <li><a class="dropdown-item" href="/cgi-bin/central_processor.py">Процессоры</a></li>
+                            <li><a class="dropdown-item" href="/cgi-bin/computer.py">Компьютеры</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="col">
+                                <button type="button"  class="btn btn-light" >Обновить</button>
+                                <button type="button" class="btn btn-light">Добавить</button>
+                        </div>
+                        
+                    </li>
+                 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Добавление строки</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                 <form class="container-fluid" action="/cgi-bin/formAdd.py">
+                <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Name</span>
+                            <input type="text" name="nameInput" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">DateIn</span>
+                            <input type="text" name="dateInput" class="form-control" pattern="\d{4}-\d{1,2}-\d{1,2}" placeholder="DateIn" aria-label="DateIn" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">FacultyId</span>
+                            <input type="text" pattern="[0-9]+" name="facultyInput" class="form-control" placeholder="FacultyId" aria-label="FacultyId" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">SpecialityId</span>
+                            <input type="text" pattern="[0-9]+" name="specialityInput" class="form-control" placeholder="SpecialityId" aria-label="SpecialityId" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Course</span>
+                            <input type="text" pattern="[0-9]+" name="courseInput" class="form-control" placeholder="Course" aria-label="Course" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">GroupNum</span>
+                            <input type="text" name="groupNamInput" class="form-control" placeholder="GroupNum" aria-label="GroupNum" aria-describedby="basic-addon1" required>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-sm btn-danger" data-bs-dismiss="modal">Отмена</button>
+                    <input type="hidden" name="action" value="add">
+                    <button type="submit" class="btn btn-dark">Добавить</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
